@@ -6,13 +6,13 @@ import { App } from './App'
 import './index.css'
 
 /* FONT */
-import '@fontsource/montserrat'
+import '@fontsource/nunito-sans'
 
 /* ICONS */
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faSearch)
+library.add(faBars, faPlus)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
