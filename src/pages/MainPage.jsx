@@ -1,3 +1,8 @@
+import { WordCount } from '../projects/WordCount/WordCount'
 export const MainPage = () => {
-  return <>main</>
+  return (
+    <div className="container my-20">
+      <WordCount></WordCount>
+    </div>
+  )
 }
