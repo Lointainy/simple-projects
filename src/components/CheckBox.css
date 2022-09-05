@@ -1,0 +1,47 @@
+.custom-switch {
+  display: flex;
+  align-items: center;
+  height: 2.125rem;
+  position: relative;
+  width: auto;
+}
+
+.custom-switch__input {
+  display: none;
+}
+
+.custom-switch__slider {
+  width: 3.75rem;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+  border-radius: 2.125rem;
+}
+
+.custom-switch__slider:before {
+  bottom: 0.25rem;
+  content: '';
+  height: 1.625rem;
+  left: 0.25rem;
+  position: absolute;
+  transition: 0.4s;
+  width: 1.625rem;
+  border-radius: 50%;
+}
+/*
+.custom-switch__input:checked + .custom-switch__slider {
+  background-color: #66bb6a;
+}
+*/
+
+.custom-switch__input:checked + .custom-switch__slider:before {
+  transform: translateX(1.625rem);
+}
+
+.custom-switch__title {
+  margin-left: 5rem;
+}
