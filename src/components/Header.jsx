@@ -2,6 +2,8 @@ import { useState } from 'react'
 
 import { Link, useNavigate } from 'react-router-dom'
 
+import { projectLinks } from '../utils/links'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Header = () => {
@@ -10,13 +12,6 @@ export const Header = () => {
   const [dropdown, setDropdown] = useState(false)
 
   const [link, setLink] = useState('')
-  const links = [
-    {
-      id: 1,
-      name: 'word count',
-      tag: 'WordCount',
-    },
-  ]
 
   const handleDropdown = () => {
     setDropdown(!dropdown)
@@ -65,7 +60,7 @@ export const Header = () => {
         </div>
         {dropdown ? (
           <div className="links-list absolute right-0 mt-1 w-[10rem] rounded-[0.35rem] p-2 flex flex-wrap bg-green-100">
-            {links.map((item) => {
+            {projectLinks.map((item) => {
               return (
                 <Link
                   key={item.id}
