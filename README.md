@@ -3,8 +3,9 @@
 ## Table of contents
 
 - [Overview](#overview)
-  - [Preview](https://simple-projects-react-lointainy.netlify.app/)
-  - - [Word-count](https://simple-projects-react-lointainy.netlify.app/)
+  - [Preview](https://sp-react-lointainy.netlify.app)
+  - - [Word-count](https://sp-react-lointainy.netlify.app/project/WordCount)
+  - - [Password-generator](https://sp-react-lointainy.netlify.app/project/PasswordGenerator)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
