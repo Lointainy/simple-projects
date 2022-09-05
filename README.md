@@ -36,6 +36,7 @@
 - REACT
   - Components
   - - function components
+  - - - Dynamic name for components
   - Props
   - Hooks
   - - useState
