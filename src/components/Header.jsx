@@ -59,7 +59,7 @@ export const Header = () => {
           )}
         </div>
         {dropdown ? (
-          <div className="links-list absolute right-0 mt-1 w-[10rem] rounded-[0.35rem] p-2 flex flex-wrap bg-green-100">
+          <div className="links-list absolute right-0 mt-1 w-[20rem] rounded-[0.35rem] p-2 flex flex-wrap bg-green-100">
             {projectLinks.map((item) => {
               return (
                 <Link
