@@ -65,7 +65,7 @@ export const Header = () => {
                 <Link
                   key={item.id}
                   to={`/project/${item.tag}`}
-                  className="py-2 px-6 rounded-[0.35rem] hover:bg-teal-500 cursor-pointer w-full relative hover:text-white"
+                  className="py-2 px-6 rounded-[0.35rem] hover:bg-teal-500 cursor-pointer w-full relative hover:text-white transition duration-250 ease-out hover:ease-in"
                   name={item.name}
                   onClick={(e) => {
                     handleSelectLink(e.target.name)
