@@ -8,10 +8,11 @@ import words from './data/words'
 export const EnglishWord = () => {
   /* CAN BE CHANGED */
   const answersMaxLength = 3 // max length answers with true answer
-  const [questionsMaxLength, setQuestionsMaxLength] = useState(10) // max length for quiestions
+  const baseMode = 10 // max length for quiestions
 
   /* STATE */
-  const [selectedMode, setSelectedMode] = useState('10')
+  const [questionsMaxLength, setQuestionsMaxLength] = useState(baseMode) // mode name for game
+  const [selectedMode, setSelectedMode] = useState(baseMode.toString())
   const [currentQuestion, setCurrentQuestion] = useState(1) // current question number
 
   const [answer, setAnswer] = useState('') // question word == answer word
@@ -39,6 +40,7 @@ export const EnglishWord = () => {
   } // check answer
 
   const handleRestart = () => {
+    setQuestionsMaxLength(10)
     setCurrentQuestion(1)
     setScore(0)
     getRandom()
@@ -54,6 +56,12 @@ export const EnglishWord = () => {
     if (value == '100') setSelectedMode('100')
     if (value == 'infinity') setSelectedMode('1000')
     getRandom()
+  }
+
+  const handleNewGame = () => {
+    setAnswers([])
+    setCurrentQuestion(1)
+    setScore(0)
   }
 
   /* WATCHER`s */
@@ -130,8 +138,12 @@ export const EnglishWord = () => {
           handleClick={handleRestart}
           name={answers.length ? 'restart' : 'start'}
           iconName={'arrows-rotate'}></Button>
+
         {answers.length ? (
-          <Button handleClick={handleNextAnswers} name={'next'} iconName={'circle-chevron-right'}></Button>
+          <>
+            <Button handleClick={handleNewGame} name={'new game'} iconName={'plus-circle'}></Button>
+            <Button handleClick={handleNextAnswers} name={'next'} iconName={'circle-chevron-right'}></Button>
+          </>
         ) : (
           ''
         )}

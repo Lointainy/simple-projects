@@ -18,11 +18,12 @@ import {
   faCircleChevronRight,
   faCopy,
   faPlus,
+  faPlusCircle,
   faStar,
   faTrophy,
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBars, faPlus, faArrowsRotate, faCopy, faCircleChevronRight, faTrophy, faStar)
+library.add(faBars, faPlus, faArrowsRotate, faCopy, faCircleChevronRight, faTrophy, faStar, faPlusCircle)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
