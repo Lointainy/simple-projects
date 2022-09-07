@@ -9,4 +9,9 @@ export const projectLinks = [
     name: 'password generator',
     tag: 'PasswordGenerator',
   },
+  {
+    id: 3,
+    name: 'english word',
+    tag: 'EnglishWord',
+  },
 ]
