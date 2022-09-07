@@ -71,11 +71,17 @@ export const EnglishWord = () => {
   return (
     <div className="quiz-fuild w-auto lg:w-[50rem] mx-auto bg-slate-700 p-4 rounded-xl grid grid-cols-2">
       <div className="quiz-header text-white pb-4">
-        <div className="quiz-title font-black text-3xl">
-          Question {currentQuestion}
-          <span className="font-light text-base ml-1">/ {questionsMaxLength}</span>
-        </div>
-        <div className="quis-subtitle">{answer.word}</div>
+        {answers.length ? (
+          <>
+            <div className="quiz-title font-black text-3xl">
+              Question {currentQuestion}
+              <span className="font-light text-base ml-1">/ {questionsMaxLength}</span>
+            </div>
+            <div className="quis-subtitle">{answer.word}</div>
+          </>
+        ) : (
+          ''
+        )}
         <div className="score-fuild bg-slate-800 rounded-xl p-6 my-2 w-2/4">
           <div className="flex gap-4 items-center">
             <div className="flex items-center">
@@ -103,7 +109,10 @@ export const EnglishWord = () => {
         })}
       </ul>
       <div className="footer flex justify-between items-center col-span-2">
-        <Button handleClick={handleRestart} name={'restart'} iconName={'arrows-rotate'}></Button>
+        <Button
+          handleClick={handleRestart}
+          name={answers.length ? 'restart' : 'start'}
+          iconName={'arrows-rotate'}></Button>
         {answers.length ? (
           <Button handleClick={handleNextAnswers} name={'next'} iconName={'circle-chevron-right'}></Button>
         ) : (
