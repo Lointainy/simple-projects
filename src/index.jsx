@@ -12,9 +12,17 @@ import '@fontsource/nunito-sans'
 
 /* ICONS */
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faArrowsRotate, faBars, faCopy, faPlus } from '@fortawesome/free-solid-svg-icons'
+import {
+  faArrowsRotate,
+  faBars,
+  faCircleChevronRight,
+  faCopy,
+  faPlus,
+  faStar,
+  faTrophy,
+} from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBars, faPlus, faArrowsRotate, faCopy)
+library.add(faBars, faPlus, faArrowsRotate, faCopy, faCircleChevronRight, faTrophy, faStar)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
