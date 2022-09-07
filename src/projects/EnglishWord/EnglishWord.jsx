@@ -40,7 +40,7 @@ export const EnglishWord = () => {
   } // check answer
 
   const handleRestart = () => {
-    setQuestionsMaxLength(10)
+    setQuestionsMaxLength(Number(selectedMode))
     setCurrentQuestion(1)
     setScore(0)
     getRandom()
