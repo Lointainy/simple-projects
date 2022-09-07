@@ -69,8 +69,8 @@ export const EnglishWord = () => {
   }, [currentQuestion])
 
   return (
-    <div className="quiz-fuild w-auto lg:w-[50rem] mx-auto bg-slate-700 p-4 rounded-xl grid grid-cols-2">
-      <div className="quiz-header text-white pb-4">
+    <div className="quiz-fuild w-auto lg:w-[50rem] mx-auto bg-slate-700 p-4 rounded-xl grid gap-4">
+      <div className="quiz-header text-white pb-4 md:col-span-1 col-span-2">
         {answers.length ? (
           <>
             <div className="quiz-title font-black text-3xl">
@@ -82,7 +82,7 @@ export const EnglishWord = () => {
         ) : (
           ''
         )}
-        <div className="score-fuild bg-slate-800 rounded-xl p-6 my-2 w-2/4">
+        <div className="score-fuild bg-slate-800 rounded-xl p-6 my-2 w-full md:w-2/4">
           <div className="flex gap-4 items-center">
             <div className="flex items-center">
               <FontAwesomeIcon icon="trophy"></FontAwesomeIcon>
@@ -96,18 +96,23 @@ export const EnglishWord = () => {
         </div>
       </div>
 
-      <ul className="quiz-answers grid grid-rows-4 gap-4 mb-2 text-white">
-        {answers.map((i, id) => {
-          return (
-            <li
-              key={id}
-              onClick={() => handleClickAnswer(i.status)}
-              className="flex items-center py-2 px-4 bg-green-100 text-slate-800  rounded-[0.65rem] hover:bg-teal-500 hover:text-white cursor-pointer transition duration-250 ease-out hover:ease-in">
-              {i.name}
-            </li>
-          )
-        })}
-      </ul>
+      {answers.length ? (
+        <ul className="quiz-answers grid grid-rows-4 gap-4 mb-2 text-white md:col-span-1 col-span-2">
+          {answers.map((i, id) => {
+            return (
+              <li
+                key={id}
+                onClick={() => handleClickAnswer(i.status)}
+                className="w-full flex items-center py-2 px-4 bg-green-100 text-slate-800  rounded-[0.65rem] hover:bg-teal-500 hover:text-white cursor-pointer transition duration-250 ease-out hover:ease-in">
+                {i.name}
+              </li>
+            )
+          })}
+        </ul>
+      ) : (
+        ''
+      )}
+
       <div className="footer flex justify-between items-center col-span-2">
         <Button
           handleClick={handleRestart}
