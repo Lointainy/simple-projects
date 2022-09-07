@@ -133,7 +133,7 @@ export const EnglishWord = () => {
         ''
       )}
 
-      <div className="footer flex justify-between items-center col-span-2">
+      <div className="footer flex flex-wrap gap-2 md:gap-4 justify-center md:justify-between items-center col-span-2">
         <Button
           handleClick={handleRestart}
           name={answers.length ? 'restart' : 'start'}
@@ -148,7 +148,7 @@ export const EnglishWord = () => {
           ''
         )}
         {!answers.length ? (
-          <div className="select-mode flex gap-4">
+          <div className="select-mode flex gap-4 w-full justify-center md:w-auto md:justify-items-start">
             <Button handleClick={handleSelectMode} name={'10'} iconName={'trophy'}></Button>
             <Button handleClick={handleSelectMode} name={'100'} iconName={'trophy'}></Button>
             <Button handleClick={handleSelectMode} name={'infinity'} iconName={'trophy'}></Button>
