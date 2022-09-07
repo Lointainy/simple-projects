@@ -7,10 +7,11 @@ import words from './data/words'
 
 export const EnglishWord = () => {
   /* CAN BE CHANGED */
-  const questionsMaxLength = 10 // max length for quiestions
   const answersMaxLength = 3 // max length answers with true answer
+  const [questionsMaxLength, setQuestionsMaxLength] = useState(10) // max length for quiestions
 
   /* STATE */
+  const [selectedMode, setSelectedMode] = useState('10')
   const [currentQuestion, setCurrentQuestion] = useState(1) // current question number
 
   const [answer, setAnswer] = useState('') // question word == answer word
@@ -48,6 +49,13 @@ export const EnglishWord = () => {
     getRandom()
   } // go to next question / get new random word
 
+  const handleSelectMode = (value) => {
+    if (value == '10') setSelectedMode('10')
+    if (value == '100') setSelectedMode('100')
+    if (value == 'infinity') setSelectedMode('1000')
+    getRandom()
+  }
+
   /* WATCHER`s */
 
   useEffect(() => {
@@ -67,6 +75,10 @@ export const EnglishWord = () => {
   useEffect(() => {
     currentQuestion > questionsMaxLength ? handleRestart() : ''
   }, [currentQuestion])
+
+  useEffect(() => {
+    setQuestionsMaxLength(Number(selectedMode))
+  }, [selectedMode])
 
   return (
     <div className="quiz-fuild w-auto lg:w-[50rem] mx-auto bg-slate-700 p-4 rounded-xl grid gap-4">
@@ -120,6 +132,15 @@ export const EnglishWord = () => {
           iconName={'arrows-rotate'}></Button>
         {answers.length ? (
           <Button handleClick={handleNextAnswers} name={'next'} iconName={'circle-chevron-right'}></Button>
+        ) : (
+          ''
+        )}
+        {!answers.length ? (
+          <div className="select-mode flex gap-4">
+            <Button handleClick={handleSelectMode} name={'10'} iconName={'trophy'}></Button>
+            <Button handleClick={handleSelectMode} name={'100'} iconName={'trophy'}></Button>
+            <Button handleClick={handleSelectMode} name={'infinity'} iconName={'trophy'}></Button>
+          </div>
         ) : (
           ''
         )}
