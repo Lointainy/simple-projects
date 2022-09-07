@@ -97,7 +97,7 @@ export const EnglishWord = () => {
               Question {currentQuestion}
               <span className="font-light text-base ml-1 text-slate-400">/ {questionsMaxLength}</span>
             </div>
-            <div className="quis-subtitle flex flex-wrap w-[18.75rem] text-slate-400">
+            <div className="quis-subtitle flex flex-wrap w-[20rem] text-slate-400">
               choice currect answer for quiestion:
               <div className="text-xl font-black text-white">
                 Word is
