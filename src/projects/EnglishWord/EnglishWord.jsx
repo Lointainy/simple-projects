@@ -95,9 +95,16 @@ export const EnglishWord = () => {
           <>
             <div className="quiz-title font-black text-3xl">
               Question {currentQuestion}
-              <span className="font-light text-base ml-1">/ {questionsMaxLength}</span>
+              <span className="font-light text-base ml-1 text-slate-400">/ {questionsMaxLength}</span>
             </div>
-            <div className="quis-subtitle">{answer.word}</div>
+            <div className="quis-subtitle flex flex-wrap w-[18.75rem] text-slate-400">
+              choice currect answer for quiestion:
+              <div className="text-xl font-black text-white">
+                Word is
+                <span className="text-xl font-black text-teal-500 mx-2">{answer.word}</span>
+                translate -
+              </div>
+            </div>
           </>
         ) : (
           ''
