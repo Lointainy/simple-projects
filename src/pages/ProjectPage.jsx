@@ -3,6 +3,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 
 /* PROJECT */
+import { DebtBook } from '../projects/DebtBook/DebtBook'
 import { EnglishWord } from '../projects/EnglishWord/EnglishWord'
 import { PasswordGenerator } from '../projects/PasswordGenerator/PasswordGenerator'
 import { WordCount } from '../projects/WordCount/WordCount'
@@ -14,6 +15,7 @@ export const ProjectPage = () => {
     WordCount,
     PasswordGenerator,
     EnglishWord,
+    DebtBook,
   }
 
   const ProjectComponent = components[projectName]
