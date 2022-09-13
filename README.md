@@ -6,6 +6,7 @@
   - [Preview](https://sp-react-lointainy.netlify.app)
   - - [Word-count](https://sp-react-lointainy.netlify.app/project/WordCount)
   - - [Password-generator](https://sp-react-lointainy.netlify.app/project/PasswordGenerator)
+  - - [English-Word](https://sp-react-lointainy.netlify.app/project/EnglishWord)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
@@ -26,7 +27,6 @@
 - Node modules
   - [eslint](https://eslint.org/)
   - [prettier](https://prettier.io/)
-  - [stylelint](https://stylelint.io/)
   - [fontsource](https://fontsource.org/docs/getting-started)
   - [fontawesome](https://fontawesome.com/)
 - [REACT](https://reactjs.org/) - framework / function component
@@ -47,11 +47,6 @@
   - - Route
   - - Link
   - - Router hooks
-  - Redux ( store )
-  - - redux toolkit
-  - - createAsyncThunk
-  - - useSelector
-  - - useDispatch
 - Vite
   - create basic config
   - connect assets
