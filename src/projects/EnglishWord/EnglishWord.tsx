@@ -20,8 +20,11 @@ const EnglishWord: React.FC = () => {
   const [selectedMode, setSelectedMode] = useState<string>(baseMode.toString())
   const [currentQuestion, setCurrentQuestion] = useState<number>(1) // current question number
 
-  const [answer, setAnswer] = useState<string>('') // question word == answer word
-  const [answers, setAnswers] = useState([]) // all answers
+  const [answer, setAnswer] = useState<{ word: string; wordTranlate: string }>({
+    word: '',
+    wordTranlate: '',
+  }) // question word == answer word
+  const [answers, setAnswers] = useState<{ name: string; status: boolean }[]>([]) // all answers
 
   /* SCORE */
   const [score, setScore] = useState<number>(0) // current score
@@ -32,6 +35,7 @@ const EnglishWord: React.FC = () => {
 
   const getRandom = () => {
     setAnswer(words[randomValue()]) // get random word from data
+    console.log(answer)
   }
 
   const handleClickAnswer = (value: boolean) => {
@@ -76,7 +80,7 @@ const EnglishWord: React.FC = () => {
   }, [score])
 
   useEffect(() => {
-    if (answer != '') {
+    if (answer != null) {
       setAnswers([{ name: answer.wordTranlate, status: true }])
       for (let i = 1; i <= answersMaxLength; i++) {
         setAnswers((prev) => [...prev, { name: words[randomValue()].wordTranlate, status: false }])
