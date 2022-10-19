@@ -14,9 +14,4 @@ export const projectLinks = [
     name: 'english word',
     tag: 'EnglishWord',
   },
-  {
-    id: 4,
-    name: 'debt book',
-    tag: 'DebtBook',
-  },
 ]

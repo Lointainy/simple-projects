@@ -2,10 +2,7 @@
 import { useParams } from 'react-router-dom'
 
 /* PROJECT */
-import DebtBook from '../projects/DebtBook/DebtBook'
-import EnglishWord from '../projects/EnglishWord/EnglishWord'
-import PasswordGenerator from '../projects/PasswordGenerator/PasswordGenerator'
-import WordCount from '../projects/WordCount/WordCount'
+import { EnglishWord, PasswordGenerator, WordCount } from '../projects'
 
 const ProjectPage: React.FC = () => {
   const { projectName } = useParams()
@@ -14,7 +11,6 @@ const ProjectPage: React.FC = () => {
     WordCount,
     PasswordGenerator,
     EnglishWord,
-    DebtBook,
   }
 
   const ProjectComponent = components[projectName]
