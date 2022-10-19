@@ -1,6 +1,13 @@
 import './CheckBox.css'
 
-const CheckBox = ({ value, name, title, handleChange }) => {
+type Props = {
+  value: boolean
+  name: string
+  title: string
+  handleChange: (id: string, checked: boolean) => void
+}
+
+const CheckBox: React.FC<Props> = ({ value, name, title, handleChange }) => {
   return (
     <label htmlFor={name} className="custom-switch">
       <input

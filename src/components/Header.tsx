@@ -9,6 +9,15 @@ import { projectLinks } from '../utils/links'
 /* Icons */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+/* Types */
+interface IdEventTarget extends EventTarget {
+  id: string
+}
+
+interface MouseEvent extends React.MouseEvent<HTMLAnchorElement, globalThis.MouseEvent> {
+  target: IdEventTarget
+}
+
 const Header: React.FC = () => {
   const navigate = useNavigate()
 
@@ -22,6 +31,7 @@ const Header: React.FC = () => {
 
   const handleSelectLink = (value: string): void => {
     setLink(value)
+    setDropdown(false)
   }
 
   return (
@@ -69,11 +79,9 @@ const Header: React.FC = () => {
                   key={item.id}
                   to={`/project/${item.tag}`}
                   className="py-2 px-6 rounded-[0.35rem] hover:bg-teal-500 cursor-pointer w-full relative hover:text-white transition duration-250 ease-out hover:ease-in"
-                  data-name={item.name}
-                  onClick={(e) => {
-                    console.log(e)
-                    handleSelectLink(e.target.name)
-                    setDropdown(false)
+                  id={item.name}
+                  onClick={(e: MouseEvent) => {
+                    handleSelectLink(e.target.id)
                   }}>
                   {item.name}
                 </Link>
