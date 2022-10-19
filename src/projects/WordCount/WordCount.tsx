@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 const WordCount: React.FC = () => {
-  const [wordCount, setWordCount] = useState<number>(0)
+  const [wordCount, setWordCount] = useState<number | undefined>(0)
   const [symbolCount, setSymbolCount] = useState<number>(0)
 
   const [text, setText] = useState<string>('')
@@ -13,9 +13,10 @@ const WordCount: React.FC = () => {
   useEffect(() => {
     if (text.length > 1) {
       /* word */
-      setWordCount(text.match(/\S+/g).length)
+      setWordCount(text.match(/\S+/g)?.length)
       /* symbol */
-      setSymbolCount(text.split('').filter((i) => i == i.match(/^[a-z]+$/i)).length)
+      let reg: RegExp = /^[a-z]+$/i
+      setSymbolCount(text.split('').filter((i: any) => i == i.match(reg)).length)
     }
   }, [text])
 

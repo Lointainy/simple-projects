@@ -12,7 +12,7 @@ type passwordSettingsType = {
   symbols: boolean
 }
 
-const PasswordGenerator = () => {
+const PasswordGenerator: React.FC = () => {
   const [password, setPassword] = useState<string>('')
 
   const [passwordSettings, setPasswordSettings] = useState<passwordSettingsType>({
