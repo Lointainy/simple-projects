@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const WordCount = () => {
+const WordCount: React.FC = () => {
   const [wordCount, setWordCount] = useState<number>(0)
   const [symbolCount, setSymbolCount] = useState<number>(0)
 

@@ -12,20 +12,20 @@ import words from './data/words'
 
 const EnglishWord: React.FC = () => {
   /* CAN BE CHANGED */
-  const answersMaxLength = 3 // max length answers with true answer
-  const baseMode = 10 // max length for quiestions
+  const answersMaxLength: number = 3 // max length answers with true answer
+  const baseMode: number = 10 // max length for quiestions
 
   /* STATE */
-  const [questionsMaxLength, setQuestionsMaxLength] = useState(baseMode) // mode name for game
-  const [selectedMode, setSelectedMode] = useState(baseMode.toString())
-  const [currentQuestion, setCurrentQuestion] = useState(1) // current question number
+  const [questionsMaxLength, setQuestionsMaxLength] = useState<number>(baseMode) // mode name for game
+  const [selectedMode, setSelectedMode] = useState<string>(baseMode.toString())
+  const [currentQuestion, setCurrentQuestion] = useState<number>(1) // current question number
 
-  const [answer, setAnswer] = useState('') // question word == answer word
+  const [answer, setAnswer] = useState<string>('') // question word == answer word
   const [answers, setAnswers] = useState([]) // all answers
 
   /* SCORE */
-  const [score, setScore] = useState(0) // current score
-  const [bestScore, setBestScore] = useState(0) // high score
+  const [score, setScore] = useState<number>(0) // current score
+  const [bestScore, setBestScore] = useState<number>(0) // high score
 
   /* FUNTCTION`s */
   const randomValue = () => Math.ceil(Math.random() * (words.length - 1) + 1) // random number
@@ -34,7 +34,7 @@ const EnglishWord: React.FC = () => {
     setAnswer(words[randomValue()]) // get random word from data
   }
 
-  const handleClickAnswer = (value) => {
+  const handleClickAnswer = (value: boolean) => {
     if (value == true) {
       setCurrentQuestion((prev) => prev + 1)
       setScore((prev) => prev + 1)
@@ -56,7 +56,7 @@ const EnglishWord: React.FC = () => {
     getRandom()
   } // go to next question / get new random word
 
-  const handleSelectMode = (value) => {
+  const handleSelectMode = (value: string) => {
     if (value == '10') setSelectedMode('10')
     if (value == '100') setSelectedMode('100')
     if (value == 'infinity') setSelectedMode('1000')
