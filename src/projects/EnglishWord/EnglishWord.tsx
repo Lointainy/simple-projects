@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react'
 
-import { Button } from '@/components/Button'
+/* Components */
+import { Button } from '@/components'
+
+/* Icons */
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+/* Data */
 import words from './data/words'
 
-export const EnglishWord = () => {
+const EnglishWord: React.FC = () => {
   /* CAN BE CHANGED */
   const answersMaxLength = 3 // max length answers with true answer
   const baseMode = 10 // max length for quiestions
@@ -167,3 +172,5 @@ export const EnglishWord = () => {
     </div>
   )
 }
+
+export default EnglishWord

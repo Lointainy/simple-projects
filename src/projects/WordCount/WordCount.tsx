@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 
-export const WordCount = () => {
-  const [wordCount, setWordCount] = useState(0)
-  const [symbolCount, setSymbolCount] = useState('')
+const WordCount = () => {
+  const [wordCount, setWordCount] = useState<number>(0)
+  const [symbolCount, setSymbolCount] = useState<number>(0)
 
-  const [text, setText] = useState('')
+  const [text, setText] = useState<string>('')
 
-  const handleText = (value) => {
+  const handleText = (value: string) => {
     setText(value)
   }
 
@@ -39,3 +39,5 @@ export const WordCount = () => {
     </div>
   )
 }
+
+export default WordCount

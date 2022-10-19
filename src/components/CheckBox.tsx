@@ -1,6 +1,6 @@
 import './CheckBox.css'
 
-export const CheckBox = ({ value, name, title, handleChange }) => {
+const CheckBox = ({ value, name, title, handleChange }) => {
   return (
     <label htmlFor={name} className="custom-switch">
       <input
@@ -20,3 +20,5 @@ export const CheckBox = ({ value, name, title, handleChange }) => {
     </label>
   )
 }
+
+export default CheckBox

@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export const Button = ({ name, iconName, handleClick }) => {
+const Button = ({ name, iconName, handleClick }) => {
   return (
     <button
       onClick={() => handleClick(name)}
@@ -10,3 +10,5 @@ export const Button = ({ name, iconName, handleClick }) => {
     </button>
   )
 }
+
+export default Button

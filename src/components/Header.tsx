@@ -1,23 +1,26 @@
 import { useState } from 'react'
 
+/* Router */
 import { Link, useNavigate } from 'react-router-dom'
 
+/* Links */
 import { projectLinks } from '../utils/links'
 
+/* Icons */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export const Header = () => {
+const Header: React.FC = () => {
   const navigate = useNavigate()
 
-  const [dropdown, setDropdown] = useState(false)
+  const [dropdown, setDropdown] = useState<boolean>(false)
 
-  const [link, setLink] = useState('')
+  const [link, setLink] = useState<string>('')
 
-  const handleDropdown = () => {
+  const handleDropdown = (): void => {
     setDropdown(!dropdown)
   }
 
-  const handleSelectLink = (value) => {
+  const handleSelectLink = (value: string): void => {
     setLink(value)
   }
 
@@ -66,8 +69,9 @@ export const Header = () => {
                   key={item.id}
                   to={`/project/${item.tag}`}
                   className="py-2 px-6 rounded-[0.35rem] hover:bg-teal-500 cursor-pointer w-full relative hover:text-white transition duration-250 ease-out hover:ease-in"
-                  name={item.name}
+                  data-name={item.name}
                   onClick={(e) => {
+                    console.log(e)
                     handleSelectLink(e.target.name)
                     setDropdown(false)
                   }}>
@@ -83,3 +87,5 @@ export const Header = () => {
     </div>
   )
 }
+
+export default Header

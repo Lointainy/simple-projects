@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 
-import { Button } from '@/components/Button'
-import { CheckBox } from '@/components/CheckBox'
+/* Components */
+import { Button, CheckBox } from '@/components'
 
-export const PasswordGenerator = () => {
-  const [password, setPassword] = useState('')
+const PasswordGenerator = () => {
+  const [password, setPassword] = useState<string>('')
 
   const [passwordSettings, setPasswordSettings] = useState({
     length: 4,
@@ -38,7 +38,7 @@ export const PasswordGenerator = () => {
       .slice(0, passwordSettings.length)
   }
 
-  const handleSelectSettings = (name, value) => {
+  const handleSelectSettings = (name: any, value: any) => {
     setPasswordSettings({ ...passwordSettings, [name]: value })
   }
 
@@ -114,3 +114,5 @@ export const PasswordGenerator = () => {
     </div>
   )
 }
+
+export default PasswordGenerator

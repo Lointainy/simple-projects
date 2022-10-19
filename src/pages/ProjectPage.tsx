@@ -1,14 +1,13 @@
-import React from 'react'
-
+/* Router */
 import { useParams } from 'react-router-dom'
 
 /* PROJECT */
-import { DebtBook } from '../projects/DebtBook/DebtBook'
-import { EnglishWord } from '../projects/EnglishWord/EnglishWord'
-import { PasswordGenerator } from '../projects/PasswordGenerator/PasswordGenerator'
-import { WordCount } from '../projects/WordCount/WordCount'
+import DebtBook from '../projects/DebtBook/DebtBook'
+import EnglishWord from '../projects/EnglishWord/EnglishWord'
+import PasswordGenerator from '../projects/PasswordGenerator/PasswordGenerator'
+import WordCount from '../projects/WordCount/WordCount'
 
-export const ProjectPage = () => {
+const ProjectPage: React.FC = () => {
   const { projectName } = useParams()
 
   const components = {
@@ -26,3 +25,5 @@ export const ProjectPage = () => {
     </div>
   )
 }
+
+export default ProjectPage

@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+
+/* Router */
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import { App } from './App'
+import App from './App'
 
-/* STYLE */
-import './index.css'
-
-/* FONT */
+/* Style */
 import '@fontsource/nunito-sans'
+import './index.css'
 
 /* ICONS */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -25,7 +25,7 @@ import {
 
 library.add(faBars, faPlus, faArrowsRotate, faCopy, faCircleChevronRight, faTrophy, faStar, faPlusCircle)
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Router>
       <App />
