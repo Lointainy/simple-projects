@@ -1,4 +1,4 @@
-const words = [
+const words: { word: string; wordTranlate: string }[] = [
   { word: 'a', wordTranlate: 'a' },
   { word: 'able', wordTranlate: 'здатний' },
   { word: 'about', wordTranlate: 'приблизно' },

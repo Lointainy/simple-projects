@@ -1,12 +1,21 @@
 import { useEffect, useState } from 'react'
 
-import { Button } from '@/components/Button'
-import { CheckBox } from '@/components/CheckBox'
+/* Components */
+import { Button, CheckBox } from '@/components'
 
-export const PasswordGenerator = () => {
-  const [password, setPassword] = useState('')
+/* Types */
+type passwordSettingsType = {
+  length: number
+  lowercase: boolean
+  uppercase: boolean
+  numbers: boolean
+  symbols: boolean
+}
 
-  const [passwordSettings, setPasswordSettings] = useState({
+const PasswordGenerator: React.FC = () => {
+  const [password, setPassword] = useState<string>('')
+
+  const [passwordSettings, setPasswordSettings] = useState<passwordSettingsType>({
     length: 4,
     lowercase: true,
     uppercase: false,
@@ -14,7 +23,7 @@ export const PasswordGenerator = () => {
     symbols: false,
   })
 
-  const [errorValue, setErrorValue] = useState({
+  const [errorValue, setErrorValue] = useState<{ status: boolean; title: string }>({
     status: false,
     title: 'please enter length for password',
   })
@@ -25,7 +34,7 @@ export const PasswordGenerator = () => {
 
   /* function for create random password */
 
-  const randomPassword = () => {
+  const randomPassword = (): string => {
     const random = [
       ...(passwordSettings.lowercase ? alphabet.map((e) => e.toLowerCase()) : []),
       ...(passwordSettings.uppercase ? alphabet.map((e) => e.toUpperCase()) : []),
@@ -38,15 +47,15 @@ export const PasswordGenerator = () => {
       .slice(0, passwordSettings.length)
   }
 
-  const handleSelectSettings = (name, value) => {
+  const handleSelectSettings = (name: string, value: number | boolean): void => {
     setPasswordSettings({ ...passwordSettings, [name]: value })
   }
 
-  const handleGenerate = () => {
+  const handleGenerate = (): void => {
     setPassword(randomPassword)
   }
 
-  const handleCopyPassword = () => {
+  const handleCopyPassword = (): void => {
     navigator.clipboard.writeText(password) // copy for buffer
   }
 
@@ -77,7 +86,7 @@ export const PasswordGenerator = () => {
             min="0"
             max="16"
             value={passwordSettings.length}
-            onChange={(e) => setPasswordSettings({ ...passwordSettings, length: e.target.value })}
+            onChange={(e) => setPasswordSettings({ ...passwordSettings, length: Number(e.target.value) })}
             type="range"
             className="h-2 bg-teal-500 text-green-100 rounded-lg appearance-none cursor-pointer"
           />
@@ -114,3 +123,5 @@ export const PasswordGenerator = () => {
     </div>
   )
 }
+
+export default PasswordGenerator

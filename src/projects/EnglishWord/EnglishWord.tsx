@@ -1,35 +1,41 @@
 import { useEffect, useState } from 'react'
 
-import { Button } from '@/components/Button'
+/* Components */
+import { Button } from '@/components'
+
+/* Icons */
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+/* Data */
 import words from './data/words'
 
-export const EnglishWord = () => {
+const EnglishWord: React.FC = () => {
   /* CAN BE CHANGED */
-  const answersMaxLength = 3 // max length answers with true answer
-  const baseMode = 10 // max length for quiestions
+  const answersMaxLength: number = 3 // max length answers with true answer
+  const baseMode: number = 10 // max length for quiestions
 
   /* STATE */
-  const [questionsMaxLength, setQuestionsMaxLength] = useState(baseMode) // mode name for game
-  const [selectedMode, setSelectedMode] = useState(baseMode.toString())
-  const [currentQuestion, setCurrentQuestion] = useState(1) // current question number
+  const [questionsMaxLength, setQuestionsMaxLength] = useState<number>(baseMode) // mode name for game
+  const [selectedMode, setSelectedMode] = useState<string>(baseMode.toString())
+  const [currentQuestion, setCurrentQuestion] = useState<number>(1) // current question number
 
-  const [answer, setAnswer] = useState('') // question word == answer word
-  const [answers, setAnswers] = useState([]) // all answers
+  const [answer, setAnswer] = useState<{ word: string; wordTranlate: string } | null>(null) // question word == answer word
+  const [answers, setAnswers] = useState<{ name: string; status: boolean }[]>([]) // all answers
 
   /* SCORE */
-  const [score, setScore] = useState(0) // current score
-  const [bestScore, setBestScore] = useState(0) // high score
+  const [score, setScore] = useState<number>(0) // current score
+  const [bestScore, setBestScore] = useState<number>(0) // high score
 
   /* FUNTCTION`s */
   const randomValue = () => Math.ceil(Math.random() * (words.length - 1) + 1) // random number
 
   const getRandom = () => {
     setAnswer(words[randomValue()]) // get random word from data
+    console.log(answer)
   }
 
-  const handleClickAnswer = (value) => {
+  const handleClickAnswer = (value: boolean) => {
     if (value == true) {
       setCurrentQuestion((prev) => prev + 1)
       setScore((prev) => prev + 1)
@@ -51,7 +57,7 @@ export const EnglishWord = () => {
     getRandom()
   } // go to next question / get new random word
 
-  const handleSelectMode = (value) => {
+  const handleSelectMode = (value: string) => {
     if (value == '10') setSelectedMode('10')
     if (value == '100') setSelectedMode('100')
     if (value == 'infinity') setSelectedMode('1000')
@@ -71,7 +77,7 @@ export const EnglishWord = () => {
   }, [score])
 
   useEffect(() => {
-    if (answer != '') {
+    if (answer != null) {
       setAnswers([{ name: answer.wordTranlate, status: true }])
       for (let i = 1; i <= answersMaxLength; i++) {
         setAnswers((prev) => [...prev, { name: words[randomValue()].wordTranlate, status: false }])
@@ -101,7 +107,7 @@ export const EnglishWord = () => {
               choice currect answer for quiestion:
               <div className="text-xl font-black text-white">
                 Word is
-                <span className="text-xl font-black text-teal-500 mx-2">{answer.word}</span>
+                <span className="text-xl font-black text-teal-500 mx-2">{answer?.word}</span>
                 translate -
               </div>
             </div>
@@ -167,3 +173,5 @@ export const EnglishWord = () => {
     </div>
   )
 }
+
+export default EnglishWord

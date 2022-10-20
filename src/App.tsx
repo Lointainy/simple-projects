@@ -1,10 +1,11 @@
+/* Router */
 import { Route, Routes } from 'react-router-dom'
 
-import { Header } from './components/Header'
-import { MainPage } from './pages/MainPage'
-import { ProjectPage } from './pages/ProjectPage'
+/* Components */
+import { Header } from './components'
+import { MainPage, ProjectPage } from './pages'
 
-export const App = () => {
+const App = () => {
   return (
     <div className="h-screen bg-slate-800">
       <Header></Header>
@@ -15,3 +16,5 @@ export const App = () => {
     </div>
   )
 }
+
+export default App

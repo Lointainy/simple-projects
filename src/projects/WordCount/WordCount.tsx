@@ -1,21 +1,22 @@
 import { useEffect, useState } from 'react'
 
-export const WordCount = () => {
-  const [wordCount, setWordCount] = useState(0)
-  const [symbolCount, setSymbolCount] = useState('')
+const WordCount: React.FC = () => {
+  const [wordCount, setWordCount] = useState<number | undefined>(0)
+  const [symbolCount, setSymbolCount] = useState<number>(0)
 
-  const [text, setText] = useState('')
+  const [text, setText] = useState<string>('')
 
-  const handleText = (value) => {
+  const handleText = (value: string) => {
     setText(value)
   }
 
   useEffect(() => {
     if (text.length > 1) {
       /* word */
-      setWordCount(text.match(/\S+/g).length)
+      setWordCount(text.match(/\S+/g)?.length)
       /* symbol */
-      setSymbolCount(text.split('').filter((i) => i == i.match(/^[a-z]+$/i)).length)
+      let reg: RegExp = /^[a-z]+$/i
+      setSymbolCount(text.split('').filter((i: any) => i == i.match(reg)).length)
     }
   }, [text])
 
@@ -39,3 +40,5 @@ export const WordCount = () => {
     </div>
   )
 }
+
+export default WordCount

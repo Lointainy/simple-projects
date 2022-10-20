@@ -1,24 +1,37 @@
 import { useState } from 'react'
 
+/* Router */
 import { Link, useNavigate } from 'react-router-dom'
 
+/* Links */
 import { projectLinks } from '../utils/links'
 
+/* Icons */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export const Header = () => {
+/* Types */
+interface IdEventTarget extends EventTarget {
+  id: string
+}
+
+interface MouseEvent extends React.MouseEvent<HTMLAnchorElement, globalThis.MouseEvent> {
+  target: IdEventTarget
+}
+
+const Header: React.FC = () => {
   const navigate = useNavigate()
 
-  const [dropdown, setDropdown] = useState(false)
+  const [dropdown, setDropdown] = useState<boolean>(false)
 
-  const [link, setLink] = useState('')
+  const [link, setLink] = useState<string>('')
 
-  const handleDropdown = () => {
+  const handleDropdown = (): void => {
     setDropdown(!dropdown)
   }
 
-  const handleSelectLink = (value) => {
+  const handleSelectLink = (value: string): void => {
     setLink(value)
+    setDropdown(false)
   }
 
   return (
@@ -66,10 +79,9 @@ export const Header = () => {
                   key={item.id}
                   to={`/project/${item.tag}`}
                   className="py-2 px-6 rounded-[0.35rem] hover:bg-teal-500 cursor-pointer w-full relative hover:text-white transition duration-250 ease-out hover:ease-in"
-                  name={item.name}
-                  onClick={(e) => {
-                    handleSelectLink(e.target.name)
-                    setDropdown(false)
+                  id={item.name}
+                  onClick={(e: MouseEvent) => {
+                    handleSelectLink(e.target.id)
                   }}>
                   {item.name}
                 </Link>
@@ -83,3 +95,5 @@ export const Header = () => {
     </div>
   )
 }
+
+export default Header

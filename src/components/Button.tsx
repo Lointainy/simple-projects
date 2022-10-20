@@ -1,6 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export const Button = ({ name, iconName, handleClick }) => {
+/* Types */
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
+
+type Props = {
+  name: string
+  iconName: IconProp
+  handleClick: (name: string) => void
+}
+
+const Button: React.FC<Props> = ({ name, iconName, handleClick }) => {
   return (
     <button
       onClick={() => handleClick(name)}
@@ -10,3 +19,5 @@ export const Button = ({ name, iconName, handleClick }) => {
     </button>
   )
 }
+
+export default Button
