@@ -20,10 +20,7 @@ const EnglishWord: React.FC = () => {
   const [selectedMode, setSelectedMode] = useState<string>(baseMode.toString())
   const [currentQuestion, setCurrentQuestion] = useState<number>(1) // current question number
 
-  const [answer, setAnswer] = useState<{ word: string; wordTranlate: string }>({
-    word: '',
-    wordTranlate: '',
-  }) // question word == answer word
+  const [answer, setAnswer] = useState<{ word: string; wordTranlate: string } | null>(null) // question word == answer word
   const [answers, setAnswers] = useState<{ name: string; status: boolean }[]>([]) // all answers
 
   /* SCORE */
@@ -110,7 +107,7 @@ const EnglishWord: React.FC = () => {
               choice currect answer for quiestion:
               <div className="text-xl font-black text-white">
                 Word is
-                <span className="text-xl font-black text-teal-500 mx-2">{answer.word}</span>
+                <span className="text-xl font-black text-teal-500 mx-2">{answer?.word}</span>
                 translate -
               </div>
             </div>
